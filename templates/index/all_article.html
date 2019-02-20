@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% block body %}<body class="sub-page">{% endblock %}
+<!-- Background Gradients-->
+	<div  class="site-gradients">
+		<div class="site-gradients-media">
+			<figure>
+				<img src="{%static "images/banner1.jpg"%}" alt="PcLGXNjMTdiFVKTrElCl__DSC2245" srcset="{%static "images/banner1.jpg"%}" sizes="(max-width: 1617px) 100vw, 1617px" height="1080" width="1617">
+			</figure>
+		</div>
+	</div>
+	<header class="container">
+		<div class="site-branding">
+			<h1 class="site-title">
+				<span>Ctadas</span>
+			</h1>
+			<h2 class="site-description">Welcome to Us !</h2>
+		</div>
+
+	</header>
+	
+	<!-- /////////////////////////////////////////Content -->
+	
+	<div id="page-content">
+		<section class="box-content box-1">
+			<div class="container">
+				<div class="row">
+					{% if articles %}
+					{% for article in articles %}
+					<div class="col-md-4">					
+						<div class="box-item">
+							<img src="/static/media/{{article.show_pictures}}" class="img-responsive" style="width:500px;height:250px;" >
+							<div class="content">
+								<h3>{{ article.title }}</h3>
+								<p>{{ article.content|truncatechars_html:40 | safe }}</p>
+								<a href="article/{{article.id}}">阅读全文...</a>
+								<br><br>
+								<span>分类：{{ article.tpye }}</span><br>
+								<span>{{ article.release_time }}</span><br>
+							</div>
+						</div>
+					 </div>
+					{% endfor %}
+					{% endif %}					
+				</div>
+			</div>
+		</section>
+	</div>
+
+{% endblock %}

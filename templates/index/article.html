@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Background Gradients-->
+<!-- <link href="{% static "js/editor/kindeditor-4.1.1/plugins/code/prettify.css" %}"  rel="stylesheet" type="text/css">
+<script src="{% static "js/editor/kindeditor-4.1.1/plugins/code/prettify.js" %}"></script> -->
+
+{% block body %}<body class="sub-page">{% endblock %}
+
+
+	<div  class="site-gradients">
+		<div class="site-gradients-media">
+			<figure>
+				<img src="{%static "images/banner1.jpg"%}" alt="PcLGXNjMTdiFVKTrElCl__DSC2245" srcset="{%static "images/banner1.jpg"%}" sizes="(max-width: 1617px) 100vw, 1617px" height="1080" width="1617">
+			</figure>
+		</div>
+	</div>
+	<header class="container">
+		<div class="site-branding">
+			<h1 class="site-title">
+				<span>Ctadas</span>
+			</h1>
+			<h2 class="site-description">Welcome to Us !</h2>
+		</div>
+
+	</header>
+	<!-- /////////////////////////////////////////Content -->
+
+	<div id="page-content" class="single-page">
+		<div class="container">
+			<div class="row">
+				<div id="main-content">
+					<article>
+						<img src="/static/media/{{article.show_pictures}}"style="width:1200px;height:640px;">
+						<div class="art-content">
+							<h1>{{ article.title }}</h1>
+							<div class="info">分类：{{article.tpye}}</div>
+							<div class="info">{{article.release_time}}</div>
+							<div class="excerpt">
+								<p>{{article.content|safe}}</p>
+							</div>
+						</div>
+					</article>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+<!-- <script type="text/javascript">
+
+prettyPrint();
+
+</script -->>
+{% endblock %}
