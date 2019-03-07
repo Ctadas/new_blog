@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db.models.signals import post_delete
@@ -8,21 +9,29 @@ import os
 
 # Create your models here.
 class Article_type(models.Model):
-	type_name = models.CharField(unique=True,max_length = 100)
+	type_name = models.CharField('类型名称',unique=True,max_length = 100)
 
 	def __str__(self):
 		return self.type_name
 
+	class Meta:
+		verbose_name = '文章类型管理'
+		verbose_name_plural = "文章类型管理"
+
 class Article(models.Model):
-	tpye = models.ForeignKey(Article_type, on_delete=models.CASCADE)
-	title = models.CharField(max_length = 100)
-	content = RichTextUploadingField()
+	tpye = models.ForeignKey(Article_type, on_delete=models.CASCADE,verbose_name='文章类型')
+	title = models.CharField('文章标题',max_length = 100)
+	content = RichTextUploadingField('文章内容')
 	release_time = models.DateField(auto_now_add = True)
-	show_pictures = models.ImageField(upload_to='uploads/%Y/%m/%d/')
-	visits = models.IntegerField(default = 0)
+	show_pictures = models.ImageField('展示图片',upload_to='uploads/%Y/%m/%d/')
+	visits = models.IntegerField('展示图片',default = 0)
 
 	def __str__(self):
 		return self.title
+
+	class Meta:
+		verbose_name = '文章管理'
+		verbose_name_plural = "文章管理"
 
 @receiver(post_delete, sender=Article)
 def delete_upload_files(sender, instance, **kwargs):

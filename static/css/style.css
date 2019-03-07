@@ -49,7 +49,7 @@ input:not([type]), input[type="color"], input[type="email"], input[type="number"
     font-weight: normal;
     height: 40px;
     line-height: 1.2;
-    margin: 10px 0;
+/*     margin: 10px 0; */
     outline: medium none;
     padding: 5px 10px 0;
     transition: border-color 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s;
@@ -175,7 +175,7 @@ hr{max-width: 50px;
 /* ---------------------------------------------------------------------------- */
 /* ----------------------------------Header------------------------------------ */
 /* ---------------------------------------------------------------------------- */	
-.sub-page header{min-height: 250px;padding: 130px 7px 0;}
+.sub-page header{min-height: 200px;padding: 130px 7px 0;}
 .index-page header{margin-top: -220px;margin-bottom: 250px;}
 @media(max-width:767px){
 	.index-page header{margin-top: 130px;margin-bottom: 0px;}
@@ -266,8 +266,8 @@ footer a:hover {color: #fff;text-decoration: underline;}
 
 footer .col-footer{margin: 10px 0 30px;}
 
-footer .wrap-footer{padding:40px 0; background-color:#EAECEE;}
-footer .bottom-footer{background-color: #EAECEE;color: #fff;text-align: center;padding: 40px 0px 70px;}
+footer .wrap-footer{padding:0 0 10px; background-color:#EAECEE;}
+footer .bottom-footer{background-color: #EAECEE;color: #fff;text-align: center;padding: 20px 0 0;}
 footer .bottom-footer a{font-weight: bold;}
 footer .bottom-footer a:hover{color: #444;}
 footer ul.social-buttons li a{display: block;width: 35px;height: 35px;border-radius: 100%;font-size: 20px;color: #222;background-color: #fff;transition-duration: 0.4s;}
@@ -405,4 +405,14 @@ a.btn:focus{outline: 0;}
 /* ---------------------------------------------------------------------------- */
 .maps iframe{
     pointer-events: none;
+}
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+.dropdown-menu{
+	background-color: black;
+}
+.dropdown-menu li a:hover{
+	background-color: #545353;
 }

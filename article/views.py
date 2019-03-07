@@ -15,17 +15,17 @@ def all_article(request):
 	return_content = {}
 	articles = Article.objects.all().order_by('-release_time')
 	return_content['articles'] = articles
-	return render(request,'index/all_article.html',return_content)
+	return render(request,'article/all_article.html',return_content)
 
 def article(request,id):
 	return_content = {}
 	article = Article.objects.get(id=id)
 	statistical_visits(article)
 	return_content['article'] = article
-	return render(request,'index/article.html',return_content)
+	return render(request,'article/article.html',return_content)
 
 def about(request):
-	return render(request,'index/about.html',{})
+	return render(request,'about/about.html',{})
 
 def statistical_visits(article):
 	article.visits += 1

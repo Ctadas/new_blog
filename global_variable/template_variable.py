@@ -1,4 +1,5 @@
 from article.models import Article_type
+from user_management.models import UserManagement
 
 def show_article_type(request):
 	content ={}

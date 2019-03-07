@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<style type="text/css">
+	.img_upload{
+		opacity:0;
+        filter:alpha(opacity=0);
+        height: 150px;
+        width: 150px;
+        position: absolute;
+        top: 0;
+        left: 35%;
+        z-index: 9;
+        cursor:pointer;
+	}
+	.mask{
+		opacity:0.7;
+		height: 150px;
+		width: 150px;
+		position: absolute;
+		z-index: 5;
+		background-color: #434c49;
+		border-radius: 50%;
+	}
+	.img_text{
+		font-size: 20px;
+		font-weight:600;
+		transform: translate(-50%, -50%);
+		position: absolute;
+		top:50%;
+		left:50%;
+		z-index: 6;
+		color:white
+	}
+</style>
+{% endblock%}
+
+{% block content %}
+{% block body %}<body class="sub-page">{% endblock %}
+<!-- Background Gradients-->
+	<div  class="site-gradients">
+		<div class="site-gradients-media">
+			<figure>
+				<img src="{%static "images/banner1.jpg"%}" alt="PcLGXNjMTdiFVKTrElCl__DSC2245" srcset="{%static "images/banner1.jpg"%}" sizes="(max-width: 1617px) 100vw, 1617px" height="1080" width="1617">
+			</figure>
+		</div>
+	</div>
+	<header class="container">
+		<div class="site-branding">
+			<h1 class="site-title">
+				<span>信息修改</span>
+			</h1>
+			<!-- <h2 class="site-description">Welcome to Us !</h2> -->
+		</div>
+
+	</header>
+	
+	<!-- /////////////////////////////////////////Content -->
+	
+	<div id="page-content">
+		<section class="box-content box-1">
+			<div class="container center-block">
+				<div class="col-md-offset-3 col-md-6" style="background-color: #d0d0e7;margin-bottom: 50px;padding: 40px">
+					<form class="form-horizontal" action="/personal_information_modification/" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+						<div class="form-group">
+							<div class="col-md-12" style="text-align: center;">
+								<img src="/static/media/{{ user.head_portrait }}" class="img-circle uplaod_show" style="width: 150px;height: 150px">
+								<!-- <img src="{% static 'images/head_portrait_upload.png'%}" class="img-circle uplaod_show"> -->
+								{{ form.head_portrait }}
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-md-2 control-label">邮箱</label>
+							<div class="col-md-9">
+								{{ form.email }}
+								<!-- <input type="text" class="form-control" id="inputEmail3" placeholder="请输入邮箱"> -->
+							</div>
+						</div>
+						<!-- <div class="form-group">
+							<label for="inputPassword3" class="col-md-2 control-label">密码</label>
+							<div class="col-md-9">
+								{{ form.password }}
+								<input type="password" class="form-control" id="inputPassword3" placeholder="请输入密码">
+							</div>
+						</div> -->
+						<!-- {{ form.non_field_errors }} -->
+						<div class="form-group">
+							<div class="col-md-offset-2 col-md-8">
+								<button type="submit" class="btn btn-primary btn-block">确定</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+	</div>
+
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src='{% static "js/user_management/information_modification.js" %}'></script>
+{% endblock %}
